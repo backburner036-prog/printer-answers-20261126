@@ -22,8 +22,10 @@ def check_len(text, lo=1, hi=240):
 
 
 def check_single_line(text):
-    # Helper: the entry must read as one breath, no setup sentence.
+    # Helper: the entry must read as one breath — beats separated by
+    # full stops, never a second sentence that explains the joke.
     assert text.count(".") >= 2, "entry needs its beats in one line"
+    assert text == text.strip(), "no leading/trailing whitespace"
     return True
 
 
